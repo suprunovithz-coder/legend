@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Легенды ECRU</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; padding: 40px 20px; }
+  h1 { text-align: center; color: #333; margin-bottom: 40px; font-size: 2.5em; }
+  
+  .gallery { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+  
+  .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; width: 280px; }
+  .card:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+  
+  .card img { width: 100%; height: 350px; object-fit: cover; display: block; }
+  .card-name { padding: 15px; text-align: center; font-size: 1.3em; font-weight: bold; color: #444; }
+  
+  /* Модальное окно */
+  .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 9999; padding: 20px; }
+  .modal.active { display: flex; }
+  
+  .modal-content { background: white; border-radius: 15px; max-width: 500px; width: 100%; padding: 30px; position: relative; animation: fadeIn 0.3s; }
+  
+  /* Исправлено: убрал мусор из тега */
+  @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+  
+  .modal-content img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+  .modal-content h2 { color: #333; margin-bottom: 15px; }
+  .modal-content p { color: #666; line-height: 1.6; font-size: 1.05em; }
+  
+  .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: #999; line-height: 1; }
+  .close-btn:hover { color: #333; }
+</style>
+</head>
+<body>
+
+<h1>✨ Легенды ECRU ✨</h1>
+
+<div class="gallery">
+  <!-- Карточка 1 (Леля) -->
+  <div class="card" onclick="openModal('lelia')">
+    <img src="1.jpg" alt="Леля">
+    <div class="card-name">Леди Салихова(p.s Леля)</div>
+  </div>
+
+  <!-- Карточка 2 (Дяна) -->
+  <div class="card" onclick="openModal('diana')">
+    <img src="2.jpg" alt="Дяна">
+    <div class="card-name">Дяна Бог(p.s Буся)</div>
+  </div>
+
+  <!-- Карточка 3 (Жуля) -->
+  <div class="card" onclick="openModal('zhylia')">
+    <img src="3.jpg" alt="Жуля">
+    <div class="card-name">МС Жуля</div>
+  </div>
+</div>
+
+<!-- Модальное окно -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h2 id="modal-name"></h2>
+    <p id="modal-info"></p>
+  </div>
+</div>
+
+<script>
+  // Твои данные. 
+  // ВАЖНО: Внутри текста info я заменил двойные кавычки на одинарные, чтобы код не ломался!
+  const girls = {
+    lelia: {
+      name: "Леля Салихова",
+      img: "5.jpg", 
+      info: "Леди Салихова - свое прозвище получила не просто так, она мастерски исполняет партию в песне леди гаги 'абракадабра'. Для своих просто Леляя."
+    },
+    diana: {
+      name: "Дяна Бог.",
+      img: "6.jpg", 
+      info: "Дяна Бог - Дяна бог в рвании тузов, но на самом деле она реально такая буся. Точно сдаст экзамен, если там будет задание 'спойте песню Династия наизусть'. На работе Диана королева рана."
+    },
+    zhylia: {
+      name: "МС Жуля",
+      img: "4.jpg", 
+      info: "Рэп икона. Если спросят какой любимый мем без раздумий ответит сиксевен."
+    }
+  };
+
+  function openModal(id) {
+    const girl = girls[id];
+    if (!girl) return;
+    
+    document.getElementById('modal-img').src = girl.img;
+    document.getElementById('modal-name').textContent = girl.name;
+    document.getElementById('modal-info').textContent = girl.info;
+    
+    document.getElementById('modal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove
+
+
+'active');
+  }
+
+  // Закрытие при клике на фон (я перенес код на новую строку, как положено)
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target.id === 'modal') closeModal();
+  });
+
+  // Закрытие на Esc
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>(
+
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Кнопка работает!</h1>
+  <button onclick="alert('Ура, скрипт работает!')">Нажми меня</button>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Легенды ECRU</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 40px; }
+  h1 { text-align: center; margin-bottom: 30px; }
+  .gallery { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .card { background: white; padding: 10px; border-radius: 10px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); width: 250px; text-align: center; }
+  .card img { width: 100%; height: 300px; object-fit: cover; border-radius: 5px; }
+  .card-name { font-size: 20px; font-weight: bold; margin-top: 10px; }
+  
+  /* Модальное окно */
+  .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 1000; }
+  .modal.active { display: flex; }
+  .modal-content { background: white; padding: 20px; border-radius: 10px; max-width: 500px; width: 90%; position: relative; }
+  .modal-content img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+  .close-btn { position: absolute; top: 10px; right: 15px; font-size: 30px; cursor: pointer; color: red; }
+</style>
+</head>
+<body>
+
+<h1>Легенды ECRU</h1>
+
+<div class="gallery">
+  <div class="card" onclick="openModal('lelia')">
+    <img src="1.jpg" alt="Леля">
+    <div class="card-name">Леля</div>
+  </div>
+  <div class="card" onclick="openModal('diana')">
+    <img src="2.jpg" alt="Дяна">
+    <div class="card-name">Дяна</div>
+  </div>
+  <div class="card" onclick="openModal('zhylia')">
+    <img src="3.jpg" alt="Жуля">
+    <div class="card-name">Жуля</div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <h2 id="modal-name"></h2>
+    <p id="modal-info"></p>
+  </div>
+</div>
+
+<script>
+  var girls = {
+    lelia: { name: "Леля", img: "5.jpg", info: "Текст про Лелю." },
+    diana: { name: "Дяна", img: "6.jpg", info: "Текст про Дяну." },
+    zhylia: { name: "Жуля", img: "4.jpg", info: "Текст про Жулю." }
+  };
+
+  function openModal(id) {
+    var girl = girls[id];
+    if (!girl) return;
+    
+    document.getElementById('modal-img').src = girl.img;
+    document.getElementById('modal-name').textContent = girl.name;
+    document.getElementById('modal-info').textContent = girl.info;
+    document.getElementById('modal').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+  }
+
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target.id === 'modal') closeModal();
+  });
+</script>
+
+</body>
+</html>
